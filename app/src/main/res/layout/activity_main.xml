@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/app_main"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/app_add"
+    android:clipToOutline="true"
+    android:visibility="visible"
+    app:layout_constraintGuide_percent="0.3">
+
+    <View
+        android:id="@+id/rectangle_6"
+        android:layout_width="match_parent"
+        android:layout_height="102dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="0dp"
+        android:background="@drawable/rectangle_6" />
+
+    <Button
+        android:id="@+id/btn_add"
+        android:layout_width="42dp"
+        android:layout_height="40dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="303dp"
+        android:layout_marginTop="38dp"
+        android:background="@drawable/plusclassroom" />
+
+    <Button
+        android:id="@+id/newClass"
+        android:layout_width="321dp"
+        android:layout_height="50dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="23dp"
+        android:layout_marginTop="185dp"
+        android:background="@drawable/input_border"
+        android:onClick="gotoselect"
+        android:text="알고리즘 기말고사"
+        android:textColor="#1C1B1B"
+        android:visibility="visible" />
+
+    <Button
+        android:id="@+id/newClass2"
+        android:layout_width="321dp"
+        android:layout_height="50dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="23dp"
+        android:layout_marginTop="250dp"
+        android:background="@drawable/input_border"
+        android:text="중앙도서관 자습실1"
+        android:onClick="gotoselect"
+        android:textColor="#1C1B1B"
+        android:visibility="visible" />
+
+    <Button
+        android:id="@+id/newClass3"
+        android:layout_width="321dp"
+        android:layout_height="50dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="23dp"
+        android:layout_marginTop="315dp"
+        android:background="@drawable/input_border"
+        android:textColor="#121111"
+        android:onClick="gotoselect"
+        android:visibility="invisible" />
+
+    <Button
+        android:id="@+id/newClass4"
+        android:layout_width="321dp"
+        android:layout_height="50dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="23dp"
+        android:layout_marginTop="380dp"
+        android:background="@drawable/input_border"
+        android:textColor="#121111"
+        android:onClick="gotoselect"
+        android:visibility="invisible" />
+
+    <Button
+        android:id="@+id/newClass5"
+        android:layout_width="321dp"
+        android:layout_height="50dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="23dp"
+        android:layout_marginTop="445dp"
+        android:background="@drawable/input_border"
+        android:textColor="#121111"
+        android:onClick="gotoselect"
+        android:visibility="invisible" />
+
+</RelativeLayout>

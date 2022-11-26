@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">SocialDistance</string>
+    <string name="array">
+    가로*세로
+
+</string>
+
+
+    <string name="appName">
+
+    ㅏㅓㅏㅓㅏㅓ
+</string>
+
+    <string name="className">
+        교실 이름
+</string>
+
+    <string name="x">
+
+X
+</string>
+</resources>
