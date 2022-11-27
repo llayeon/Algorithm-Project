@@ -1,8 +1,10 @@
 package com.example.success;
 import android.widget.ImageView;
 
+import java.io.Serializable;
 
-public class Model  {
+
+public class Model implements Serializable {
     //position -> image로 바꿈
     int image;
     boolean isSelected = false;

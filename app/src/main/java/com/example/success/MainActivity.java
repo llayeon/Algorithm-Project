@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        newClass = findViewById(R.id.newClass3);
+        newClass = findViewById(R.id.newClass6);
         numbers = new String[]{};
 
 

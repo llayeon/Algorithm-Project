@@ -39,7 +39,7 @@
         android:layout_marginTop="185dp"
         android:background="@drawable/input_border"
         android:onClick="gotoselect"
-        android:text="알고리즘 기말고사"
+        android:text="AI공학관 301호"
         android:textColor="#1C1B1B"
         android:visibility="visible" />
 
@@ -66,9 +66,10 @@
         android:layout_marginLeft="23dp"
         android:layout_marginTop="315dp"
         android:background="@drawable/input_border"
+        android:text="데이터베이스 기말고사"
         android:textColor="#121111"
         android:onClick="gotoselect"
-        android:visibility="invisible" />
+        android:visibility="visible" />
 
     <Button
         android:id="@+id/newClass4"
@@ -79,9 +80,10 @@
         android:layout_marginLeft="23dp"
         android:layout_marginTop="380dp"
         android:background="@drawable/input_border"
+        android:text="모의토익 고사장"
         android:textColor="#121111"
         android:onClick="gotoselect"
-        android:visibility="invisible" />
+        android:visibility="visible" />
 
     <Button
         android:id="@+id/newClass5"
@@ -91,6 +93,20 @@
         android:layout_alignParentTop="true"
         android:layout_marginLeft="23dp"
         android:layout_marginTop="445dp"
+        android:background="@drawable/input_border"
+        android:text="전자정보도서관 노트북실"
+        android:textColor="#121111"
+        android:onClick="gotoselect"
+        android:visibility="visible" />
+
+    <Button
+        android:id="@+id/newClass6"
+        android:layout_width="321dp"
+        android:layout_height="50dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="23dp"
+        android:layout_marginTop="510dp"
         android:background="@drawable/input_border"
         android:textColor="#121111"
         android:onClick="gotoselect"

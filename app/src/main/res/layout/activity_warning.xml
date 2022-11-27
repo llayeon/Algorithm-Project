@@ -8,41 +8,24 @@
 
     <ImageView
         android:id="@+id/imageView0"
-        android:layout_width="171dp"
-        android:layout_height="156dp"
-        android:layout_marginTop="232dp"
-        android:src="@drawable/classroom"
+        android:layout_width="179dp"
+        android:layout_height="175dp"
+        android:layout_marginTop="190dp"
+        android:src="@drawable/warning"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintHorizontal_chainStyle="spread"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/text1"
-        android:layout_width="219dp"
-        android:layout_height="155dp"
-        android:layout_marginTop="140dp"
-        android:gravity="center"
-        android:text="+"
-        android:textColor="#000000"
-        android:textSize="100sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.265"
-        app:layout_constraintHorizontal_chainStyle="spread"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/text2"
+        android:id="@+id/some_id"
         android:layout_width="221dp"
-        android:layout_height="54dp"
-        android:layout_marginTop="414dp"
+        android:layout_height="58dp"
+        android:layout_marginTop="408dp"
         android:gravity="center"
-        android:text="원하는 크기의 교실을 만드세요."
+        android:text="거리두기가 지켜지지 않았습니다."
         android:textColor="#566C81"
-        android:textSize="15sp"
+        android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_chainStyle="spread"
@@ -53,17 +36,14 @@
         android:id="@+id/next"
         android:layout_width="321dp"
         android:layout_height="58dp"
-        android:layout_marginLeft="13dp"
-        android:layout_marginTop="560dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="566dp"
         android:background="#89B8FF"
-        android:textColor="#566C81"
+        android:textColor="#000000"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.388"
         app:layout_constraintHorizontal_chainStyle="spread"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:text="NEXT"/>
-
-
+        android:text="돌아가기"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

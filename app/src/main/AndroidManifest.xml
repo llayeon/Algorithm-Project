@@ -13,7 +13,14 @@
         android:theme="@style/Theme.Success"
         tools:targetApi="31">
         <activity
-            android:name=".ResultActivity"
+            android:name=".WarningActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".NewActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"

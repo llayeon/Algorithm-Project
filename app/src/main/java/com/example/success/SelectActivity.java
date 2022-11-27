@@ -10,6 +10,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.ColorSpace;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,8 +20,15 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Queue;
+import java.util.Scanner;
 
+//전략1 알고리즘
+//배열로 알고리즘 돌려서 반환값으로(0 or 1)
+//조건문써서 warning.Activity로갈지
+//NewActivity로 갈지 정함
 
 public class SelectActivity extends AppCompatActivity {
 
@@ -31,6 +39,10 @@ public class SelectActivity extends AppCompatActivity {
     RecyclerView.Adapter mAdapter;
 
     Button gotoresult;
+    RecyclerViewAdapter.ItemClickListener itemClickListener;
+    int pos;
+    String str_pos;
+    int ans;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,20 +58,42 @@ public class SelectActivity extends AppCompatActivity {
         mRecyclerView.setLayoutManager(manager);
         mRecyclerView.setAdapter(mAdapter);
 
-        //resultActivity로 안가고 recyclerview두개로 해서 화면 전환 -> 테이블 포지션 사용가능할지도?
-        gotoresult.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //결과화면으로 이동
-                Intent intent = new Intent(getApplicationContext(),ResultActivity.class);
-                //intent.putextra로 선택된 table 넘김
-                //intent.putExtra("tableset", (CharSequence) mModelList);
+        newList = new ArrayList<>();
 
-                startActivity(intent);
-                finish();
+        //선택된 책상 position을 받음
+        itemClickListener = new RecyclerViewAdapter.ItemClickListener() {
+            @Override
+            public void onItemClick(int position) {
+                pos = (int) mRecyclerView.getTag();
+                Log.e("테이블의 pos값 ",String.valueOf(pos));
+                str_pos = String.valueOf(pos);
 
             }
-        });
+        };
+
+        //ans => check(배열)
+        if(ans == 0){
+            //거리두기가 지켜지고 있지 않음
+            gotoresult.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(SelectActivity.this,WarningActivity.class);
+                    startActivity(intent);
+                    finish();
+                }
+            });
+        }else if(ans == 1){
+            //거리두기가 지켜지고 있음
+            gotoresult.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(SelectActivity.this,NewActivity.class);
+                    startActivity(intent);
+                    finish();
+                }
+            });
+        }
+
 
     }
 
@@ -74,15 +108,81 @@ public class SelectActivity extends AppCompatActivity {
 
     }
 
-    public List<Model> getcheckData(){
 
-        newList = new ArrayList<>();
-        for(int i =1;i<=30;i++){
-            if(new Model(i).isSelected){
-                newList.add(new Model(i));
+
+    final static int row = 6;
+    final static int col = 5;
+
+    int check(String[] getSeat){
+        // TODO Auto-generated method stub
+        Scanner kb = new Scanner(System.in);
+
+
+        String[] arr = new String[row];
+
+
+        for (int i = 0; i < row; i++) {
+            arr[i] = kb.nextLine();
+        }
+
+        System.out.println();
+
+
+        return ans = solution(arr);
+
+
+    }
+
+
+
+    public static int solution(String[] places) {
+        int answer;
+
+        String[] p = places;
+
+        boolean isOk = true;
+        for (int r = 0; r < row && isOk; r++) {
+            for (int c = 0; c < col && isOk; c++) {
+                if (p[r].charAt(c) == 'P') {
+                    if (!bfs(r, c, p))
+                        isOk = false;
+                }
             }
         }
-        return newList;
+        answer = isOk ? 1 : 0;
+
+
+        return answer;
     }
+
+    private static boolean bfs(int r, int c, String[] p) {
+        int dr[] = { -1, 1, 0, 0 };
+        int dc[] = { 0, 0, -1, 1 };
+
+        Queue<int[]> queue = new LinkedList<int[]>();
+        queue.offer(new int[] { r, c });
+
+        while (!queue.isEmpty()) {
+            int[] position = queue.poll();
+
+            for (int i = 0; i < 4; i++) {
+                int nr = position[0] + dr[i];
+                int nc = position[1] + dc[i];
+
+                if (nr < 0 || nc < 0 || nr >= row || nc >= col || (nr == r && nc == c))
+                    continue;
+
+                int d = Math.abs(nr - r) + Math.abs(nc - c);
+
+                if (p[nr].charAt(nc) == 'P' && d <= 2)
+                    return false;
+                else if (p[nr].charAt(nc) == 'O' && d < 2)
+                    queue.offer(new int[] { nr, nc });
+            }
+        }
+
+        return true;
+    }
+
 
 }

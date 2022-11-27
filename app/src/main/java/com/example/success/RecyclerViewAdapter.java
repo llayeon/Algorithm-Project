@@ -11,18 +11,30 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
+
+
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.MyViewHolder> {
 
-    private List<Model> mModelList;
+    public List<Model> mModelList;
+
+    //추가
+    int position;
 
     public RecyclerViewAdapter(List<Model> modelList) {
         mModelList = modelList;
     }
 
+
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.table_list, parent, false);
-        return new MyViewHolder(view);
+        ItemClickListener itemClickListener = new ItemClickListener() {
+            @Override
+            public void onItemClick(int position) {
+
+            }
+        };
+        return new MyViewHolder(view,itemClickListener);
     }
 
     @Override
@@ -30,6 +42,9 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         final Model model = mModelList.get(position);
 
         holder.imageView.setImageResource(R.drawable.table);
+
+        //추가 , 특정뷰에 태그를 달아준다
+        holder.imageView.setTag(position);
 
         holder.imageView.setImageResource(model.isSelected() ? R.drawable.check: R.drawable.table);
         holder.imageView.setOnClickListener(new View.OnClickListener() {
@@ -48,15 +63,32 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         return mModelList == null ? 0 : mModelList.size();
     }
 
-    public class MyViewHolder extends RecyclerView.ViewHolder {
+    public class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
-        private View view;
-        private ImageView imageView;
+         View view;
+         ImageView imageView;
+        ItemClickListener itemClickListener;
 
-        private MyViewHolder(View itemView) {
+        public MyViewHolder(View itemView,ItemClickListener itemClickListener) {
             super(itemView);
             view = itemView;
-            imageView = (ImageView) itemView.findViewById(R.id.imgview);
+            imageView = itemView.findViewById(R.id.imgview);
+
+            this.itemClickListener = itemClickListener;
+            imageView.setOnClickListener(this);
+        }
+
+        @Override
+        public void onClick(View v){
+            itemClickListener.onItemClick(getAbsoluteAdapterPosition());
         }
     }
+
+    public interface ItemClickListener{
+        void onItemClick(int position);
+    }
+
+
 }
+
+
